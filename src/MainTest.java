@@ -10,30 +10,26 @@ class MainTest {
 	@Before
 	void init() {
 		test = new Main();
-		test.main();
+		test.start();
+		
 	}
 	
 	@Test
+	
 	void EndReihenfolgevergleichen()
     {
-    	if(test.beendet==true)
-    	{
-    		for(int i=0;i<test.turmhoehe; i++)
-        	{
+			init();
+    		for(int i=test.turmhoehe-1;i>0; i--)
+        	{    			
         		assertEquals(test.ziel_Turm.size()-1, i);
         		test.ziel_Turm.remove(test.ziel_Turm.size()-1);
         		
         	}
-    	}
     	
     	
     }
-    void kleinsteScheibeObenaufTurm()
-    {
-    	for(int i = 0; i< test.start_Turm.size()-1; i++)
-    	{
-    		
-    	}
-    }
+	
+	@Test 
+	
 
 }

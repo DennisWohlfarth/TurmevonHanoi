@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -11,8 +13,8 @@ public class Main {
      * Zwischenspeicher Turm h.
      */
 	//List<Integer> list = new ArrayList<Integer>();
-	public List<Integer> start_Turm, hilfs_Turm, ziel_Turm;	// Unsere 3 Türme
-	public int turmhoehe= 15;
+	public List<Integer> start_Turm, hilfs_Turm, ziel_Turm;	// Unsere 3 Türme deklarieren
+	public int turmhoehe;
 	public boolean beendet=false;
     private void bewege (String start, String hilfsturm, String ziel, int n)
     {
@@ -62,9 +64,14 @@ public class Main {
 	}
     }
 
-    public void main (String[] args)
+    public void start ()
     {
-    	
+    	//Turmhöhe einlesen
+    	Scanner scanner = new Scanner(System.in);
+		System.out.print("Anzhal der Scheiben eingeben:");
+		turmhoehe = scanner.nextInt();
+		scanner.close();
+		
     	start_Turm = new ArrayList<Integer>();
     	hilfs_Turm = new ArrayList<Integer>();
     	ziel_Turm = new ArrayList<Integer>();
@@ -72,7 +79,7 @@ public class Main {
     		start_Turm.add(i);	
     	}
     	
-	  bewege("Startturm", "Hilfsturm", "Zielturm", 15);
+	  bewege("Startturm", "Hilfsturm", "Zielturm", turmhoehe);
 	  beendet = true;
 	  System.out.println(ziel_Turm.toString());
     }
